@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.osgi_3.13.0.v20180409-1500.jar" sourcepath="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.osgi_3.13.0.v20180409-1500.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.core.commands_3.9.100.v20180404-1234.jar" sourcepath="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.core.commands_3.9.100.v20180404-1234.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.equinox.common_3.10.0.v20180412-1130.jar" sourcepath="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.equinox.common_3.10.0.v20180412-1130.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.equinox.registry_3.8.0.v20180426-1327.jar" sourcepath="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.equinox.registry_3.8.0.v20180426-1327.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.core.runtime_3.14.0.v20180417-0825.jar" sourcepath="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.core.runtime_3.14.0.v20180417-0825.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.text_3.6.300.v20180430-1330.jar" sourcepath="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.text_3.6.300.v20180430-1330.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.107.0.v20180611-0422.jar" sourcepath="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.swt.win32.win32.x86_64_3.107.0.v20180611-0422.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.jface_3.14.0.v20180423-0714.jar" sourcepath="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.jface_3.14.0.v20180423-0714.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.jface.text_3.13.0.v20180527-1819.jar" sourcepath="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.jface.text_3.13.0.v20180527-1819.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.ui.workbench_3.111.0.v20180524-1156.jar" sourcepath="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.ui.workbench_3.111.0.v20180524-1156.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/.p2/pool/plugins/com.ibm.icu_58.2.0.v20170418-1837.jar" sourcepath="C:/Users/Puyodead1/.p2/pool/plugins/com.ibm.icu_58.2.0.v20170418-1837.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.ui.forms_3.7.200.v20180512-1133.jar" sourcepath="C:/Users/Puyodead1/.p2/pool/plugins/org.eclipse.ui.forms_3.7.200.v20180512-1133.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

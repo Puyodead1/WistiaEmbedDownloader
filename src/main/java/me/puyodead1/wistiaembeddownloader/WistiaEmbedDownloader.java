@@ -234,7 +234,7 @@ public class WistiaEmbedDownloader extends Shell {
 							if (comboQualities.getItems().length > 0) {
 								btnGetAvailableQualities.setEnabled(false);
 								comboQualities.setText(comboQualities.getItem(0));
-								btnDownload.setEnabled(true);
+								log("Please select a quality to download.");
 							} else {
 								if (!Strings.isNullOrEmpty(txtConsole.getText())) {
 									txtConsole.setText("");
@@ -293,7 +293,7 @@ public class WistiaEmbedDownloader extends Shell {
 							if (comboQualities.getItems().length > 0) {
 								btnGetAvailableQualities.setEnabled(false);
 								comboQualities.setText(comboQualities.getItem(0));
-								btnDownload.setEnabled(true);
+								log("Please select a quality to download.");
 							} else {
 								if (!Strings.isNullOrEmpty(txtConsole.getText())) {
 									txtConsole.setText("");
@@ -329,6 +329,12 @@ public class WistiaEmbedDownloader extends Shell {
 		comboQualities.setBounds(192, 72, 113, 23);
 		comboQualities.setText("Select Quality");
 		comboQualities.setEnabled(false);
+		comboQualities.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				getBtnDownload().setEnabled(true);
+			}
+		});
 
 		btnDownload = new Button(this, SWT.NONE);
 		btnDownload.addMouseListener(new MouseAdapter() {

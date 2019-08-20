@@ -38,4 +38,11 @@ Also see the LICENSE file in this repo.
 
 <i>__THIS SOFTWARE IS FOR PRIVATE USE ONLY! DO NOT REUPLOAD ANYTHING YOU DOWNLOAD WITH THIS UNLESS YOU HAVE PERMISSION! I AM NOT RESPONSIBLE FOR ANYTHING YOU DO!__</i>
 
+# Info
+- There are 2 modes:
+  - 1. Auto - Paste the enter "copy link and thumbnail"
+  - 2. Manual - You can enter the id and a custom title (this can be used if auto mode fails to extract the id)
+  
+- when using manual mode, use a pipe to specify the title: ``80syfiu3x6|thisisatitle``
+
 [![Tutorial](https://img.youtube.com/vi/8hFMjiog6hA/0.jpg)](https://www.youtube.com/watch?v=8hFMjiog6hA)

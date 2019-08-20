@@ -45,4 +45,7 @@ Also see the LICENSE file in this repo.
   
 - when using manual mode, use a pipe to specify the title: ``80syfiu3x6|thisisatitle``
 
+# Building
+``mvn clean compile assembly:single``
+
 [![Tutorial](https://img.youtube.com/vi/lJQ38zQNGwM/0.jpg)](https://www.youtube.com/watch?v=lJQ38zQNGwM)

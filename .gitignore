@@ -2,3 +2,5 @@ target/
 .settings/
 .classpath
 .project
+*.mp4
+tests/

@@ -33,7 +33,7 @@ Also see the LICENSE file in this repo.
 ![GitHub release](https://img.shields.io/github/release/Puyodead1-Development/WistiaEmbedDownloader.svg?style=plastic)
 ![GitHub issues](https://img.shields.io/github/issues/Puyodead1-Development/WistiaEmbedDownloader.svg?style=plastic)
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Puyodead1-Development/WistiaEmbedDownloader.svg?style=plastic)
-![GitHub](https://img.shields.io/github/license/Puyodead1-Development/WistiaEmbedDownloader.svg?style=plastic)
+![GitHub License](https://img.shields.io/github/license/Puyodead1-Development/WistiaEmbedDownloader.svg?style=plastic)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Puyodead1/WistiaEmbedDownloader.svg?style=plastic)
 
 <i>__THIS SOFTWARE IS FOR PRIVATE USE ONLY! DO NOT REUPLOAD ANYTHING YOU DOWNLOAD WITH THIS UNLESS YOU HAVE PERMISSION! I AM NOT RESPONSIBLE FOR ANYTHING YOU DO!__</i>

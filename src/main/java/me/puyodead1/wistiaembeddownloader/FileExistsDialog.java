@@ -79,12 +79,12 @@ public class FileExistsDialog extends Dialog {
 		Label lblFileName = new Label(shlFileExists, SWT.NONE);
 		lblFileName.setFont(SWTResourceManager.getFont("Segoe UI", 12, SWT.NORMAL));
 		lblFileName.setBounds(10, 58, 78, 18);
-		lblFileName.setText("File name");
+		lblFileName.setText("File name:");
 		
 		Label lblPath = new Label(shlFileExists, SWT.NONE);
 		lblPath.setFont(SWTResourceManager.getFont("Segoe UI", 12, SWT.NORMAL));
 		lblPath.setBounds(10, 86, 78, 21);
-		lblPath.setText("Path");
+		lblPath.setText("Path:");
 		
 		btnOverwrite = new Button(shlFileExists, SWT.NONE);
 		btnOverwrite.setBounds(144, 139, 75, 25);

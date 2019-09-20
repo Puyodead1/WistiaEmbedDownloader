@@ -15,11 +15,10 @@ public class FileExistsDialog extends Dialog {
 
 	protected Object result;
 	protected Shell shlFileExists;
-	private Text txtFileName;
-	private Text txtPath;
+	private Text txtFileName, txtPath;
 	private static Button btnOverwrite;
 	
-	private String fileName, outputPath;
+	private String fileName, outputPath, referer;
 	
 	public static Button getOverwriteBtn() {
 		return btnOverwrite;
@@ -32,11 +31,12 @@ public class FileExistsDialog extends Dialog {
 	 * @param string2 
 	 * @param string 
 	 */
-	public FileExistsDialog(Shell parent, int style, String fileName, String outputPath) {
+	public FileExistsDialog(Shell parent, int style, String fileName, String outputPath, String referer) {
 		super(parent, style);
 		setText("SWT Dialog");
 		this.fileName = fileName;
 		this.outputPath = outputPath;
+		this.referer = referer;
 	}
 
 	/**
@@ -93,7 +93,11 @@ public class FileExistsDialog extends Dialog {
 			@Override
 			public void mouseDown(MouseEvent e) {
 				shlFileExists.dispose();
-				new Downloader(WistiaEmbedDownloader.getAssetDirectURL(), WistiaEmbedDownloader.getFileSaveName());
+				if(referer != null) {
+					new Downloader(WistiaEmbedDownloader.getAssetDirectURL(), WistiaEmbedDownloader.getFileSaveName(), referer);
+				} else {
+					new Downloader(WistiaEmbedDownloader.getAssetDirectURL(), WistiaEmbedDownloader.getFileSaveName(), null);
+				}
 				WistiaEmbedDownloader.getBtnDownload().setText("Abort");
 			}
 		});

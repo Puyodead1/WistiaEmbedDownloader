@@ -26,13 +26,14 @@ public class Downloader implements Runnable {
 	private static int size;
 	private static int downloaded;
 	private static int status = INVALID;
-	private String output;
+	private String output, referer;
 
 	private static Thread thread;
 
-	public Downloader(URL url, String output) {
+	public Downloader(URL url, String output, String referer) {
 		this.url = url;
 		this.output = output;
+		this.referer = referer;
 		size = -1;
 		downloaded = 0;
 		status = DOWNLOADING;
@@ -82,21 +83,26 @@ public class Downloader implements Runnable {
 
 			// Specify what portion of file to download.
 			connection.setRequestProperty("Range", "bytes=" + downloaded + "-");
+			if(referer != null) {
+				connection.setRequestProperty("Referer", referer);
+			}
 
 			// Connect to server.
 			connection.connect();
 
 			// Make sure response code is in the 200 range.
 			if (connection.getResponseCode() / 100 != 2) {
-				error();
+				System.out.println("invalid response code");
 				WistiaEmbedDownloader.error("Invalid response code");
+				error();
 			}
 
 			// Check for valid content length.
 			int contentLength = connection.getContentLength();
 			if (contentLength < 1) {
-				error();
+				System.out.println("invalid content length");
 				WistiaEmbedDownloader.error("Invalid content length");
+				error();
 			}
 
 			/*
@@ -143,10 +149,11 @@ public class Downloader implements Runnable {
 				stateChanged();
 			}
 		} catch (Exception e) {
-			error();
+			System.out.println("[ERROR]: 153");
+			e.printStackTrace();
 			StringWriter writer = new StringWriter();
-			e.printStackTrace(new PrintWriter(writer));
 			WistiaEmbedDownloader.error(writer.toString());
+			error();
 		} finally {
 			// Close file.
 			if (file != null) {
@@ -174,6 +181,7 @@ public class Downloader implements Runnable {
 
 	private void stateChanged() {
 		if (status == ERROR) {
+			System.out.println("error downloading");
 			WistiaEmbedDownloader.error("Error downloading.");
 		} else if (status == DOWNLOADING) {
 			// update progess bar

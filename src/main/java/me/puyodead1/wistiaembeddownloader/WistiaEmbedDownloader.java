@@ -32,6 +32,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 
 public class WistiaEmbedDownloader extends Shell {
 
@@ -43,10 +45,10 @@ public class WistiaEmbedDownloader extends Shell {
 	 * URL input box Invalid URL - URL does not start with valid http:// or https://
 	 */
 
-	private Text txtURL, txtOutputLocation;
+	private Text txtURL, txtOutputLocation, txtReferer;
 	private static StyledText txtConsole;
-	private Label lblEnterUrl, lblOutputLocation;
-	private Button btnBrowse;
+	private Label lblEnterUrl, lblOutputLocation, lblNoteThatVideo, lblRefererDomain;
+	private Button btnBrowse, btnSpoofReferer;
 	private static Button btnGetAvailableQualities;
 	private static Button btnDownload;
 	private static Combo comboQualities;
@@ -67,7 +69,6 @@ public class WistiaEmbedDownloader extends Shell {
 	private HashMap<String, String> assets = new HashMap<String, String>();
 
 	public JsonParser parser = new JsonParser();
-	private Label lblNoteThatVideo;
 
 	public static Label getProgressLbl() {
 		return lblProgress;
@@ -78,7 +79,7 @@ public class WistiaEmbedDownloader extends Shell {
 	}
 
 	public static void log(String text) {
-		final int start = txtConsole.getText().length();
+		int start = txtConsole.getText().length();
 		txtConsole.append(text + "\n");
 		StyleRange range = new StyleRange();
 		range.start = start;
@@ -87,7 +88,7 @@ public class WistiaEmbedDownloader extends Shell {
 	}
 
 	public static void error(String text) {
-		final int start = txtConsole.getText().length();
+		int start = txtConsole.getText().length();
 		txtConsole.append(text + "\n");
 		StyleRange range = new StyleRange();
 		range.start = start;
@@ -203,6 +204,9 @@ public class WistiaEmbedDownloader extends Shell {
 							}
 
 							URLConnection connection = assetListURL.openConnection();
+							if(txtReferer.isEnabled()) {
+								connection.addRequestProperty("Referer", txtReferer.getText());
+							}
 							connection.connect();
 
 							JsonElement root = parser
@@ -357,12 +361,12 @@ public class WistiaEmbedDownloader extends Shell {
 						System.out.println(getAssetDirectURL());
 
 						String[] a = txtURL.getText().trim().contains("?wvideo=")
-								? txtURL.getText().trim().split("\\?wvideo=")[0].split("/lessons/")
+								? txtURL.getText().trim().split("\\?wvideo=")[0].split("(/lesson/)|(/lessons/)")
 								: txtURL.getText().trim().split(";wvideoid=")[0].split("/lessons/");
 						String b = a[a.length - 1];
 						String videoTitle = txtURL.getText().trim().split("\\|")[0].length() == 10
-								? txtURL.getText().trim().split("\\|")[1]
-								: txtURL.getText().trim().contains("?wvideo=") ? a[a.length - 1].split("/")[0]
+								? txtURL.getText().trim().split("|")[1]
+								: txtURL.getText().trim().contains("\\?wvideo=") ? a[a.length - 1].split("/")[0]
 										: a[a.length - 1].split("/")[0];
 						System.out.println(videoTitle);
 
@@ -373,12 +377,22 @@ public class WistiaEmbedDownloader extends Shell {
 						if (getAssetDirectURL() != null || getFileSaveName() != null) {
 							File file = new File(getFileSaveName());
 							if (!file.exists()) {
-								new Downloader(getAssetDirectURL(), getFileSaveName());
+								if(txtReferer.isEnabled()) {
+									new Downloader(getAssetDirectURL(), getFileSaveName(), txtReferer.getText());
+								} else {
+									new Downloader(getAssetDirectURL(), getFileSaveName(), null);
+								}
 								getBtnDownload().setText("Abort");
 							} else {
 								// TODO: Show overwrite dialog
-								final FileExistsDialog dialog = new FileExistsDialog(getShell(), getStyle(),
-										videoTitle + ".mp4", txtOutputLocation.getText().trim());
+								final FileExistsDialog dialog;
+								if(txtReferer.isEnabled()) {
+									dialog = new FileExistsDialog(getShell(), getStyle(),
+											videoTitle + ".mp4", txtOutputLocation.getText().trim(), txtReferer.getText());
+								} else {
+									dialog = new FileExistsDialog(getShell(), getStyle(),
+											videoTitle + ".mp4", txtOutputLocation.getText().trim(), null);
+								}
 								dialog.open();
 							}
 						} else {
@@ -409,6 +423,28 @@ public class WistiaEmbedDownloader extends Shell {
 		lblNoteThatVideo = new Label(this, SWT.WRAP);
 		lblNoteThatVideo.setBounds(10, 74, 125, 37);
 		lblNoteThatVideo.setText("Note: Video IDs are 10 characters long.");
+		
+		btnSpoofReferer = new Button(this, SWT.CHECK);
+		btnSpoofReferer.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				lblRefererDomain.setEnabled(true);
+				txtReferer.setEnabled(true);
+				txtReferer.forceFocus();
+			}
+		});
+		btnSpoofReferer.setBounds(10, 110, 115, 16);
+		btnSpoofReferer.setText("Spoof Referer?");
+		
+		txtReferer = new Text(this, SWT.BORDER);
+		txtReferer.setEnabled(false);
+		txtReferer.setBounds(10, 153, 94, 21);
+		
+		lblRefererDomain = new Label(this, SWT.NONE);
+		lblRefererDomain.setEnabled(false);
+		lblRefererDomain.setAlignment(SWT.CENTER);
+		lblRefererDomain.setBounds(10, 132, 94, 15);
+		lblRefererDomain.setText("Referer");
 		createContents();
 	}
 

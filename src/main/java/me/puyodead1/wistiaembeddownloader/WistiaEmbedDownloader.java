@@ -432,8 +432,8 @@ public class WistiaEmbedDownloader extends Shell {
 		btnSpoofReferer.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				lblRefererDomain.setEnabled(true);
-				txtReferer.setEnabled(true);
+				lblRefererDomain.setEnabled(!txtReferer.isEnabled());
+				txtReferer.setEnabled(!txtReferer.isEnabled());
 				txtReferer.forceFocus();
 			}
 		});

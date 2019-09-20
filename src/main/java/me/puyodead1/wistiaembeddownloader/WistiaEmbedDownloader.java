@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import org.eclipse.swt.SWT;
@@ -16,6 +17,8 @@ import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
@@ -28,12 +31,12 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
 import com.google.common.base.Strings;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 
 public class WistiaEmbedDownloader extends Shell {
 
@@ -103,7 +106,6 @@ public class WistiaEmbedDownloader extends Shell {
 	 * @param args
 	 */
 	public static void main(String args[]) {
-		// TODO: Make a manual video code input mode
 		try {
 			display = Display.getDefault();
 			WistiaEmbedDownloader shell = new WistiaEmbedDownloader(display);
@@ -223,6 +225,7 @@ public class WistiaEmbedDownloader extends Shell {
 												assetObj.get("url").getAsString());
 									}
 								}
+								System.out.println(assets.size());
 
 								for (String s : assets.keySet()) {
 									comboQualities.add(s);
@@ -266,10 +269,14 @@ public class WistiaEmbedDownloader extends Shell {
 							}
 
 							URLConnection connection = assetListURL.openConnection();
+							if(txtReferer.isEnabled()) {
+								connection.addRequestProperty("Referer", txtReferer.getText());
+							}
 							connection.connect();
 
 							JsonElement root = parser
 									.parse(new InputStreamReader((InputStream) connection.getContent()));
+							
 							JsonObject rootObj = root.getAsJsonObject();
 							JsonArray assetArray = rootObj.get("media").getAsJsonObject().get("assets")
 									.getAsJsonArray();
@@ -344,7 +351,6 @@ public class WistiaEmbedDownloader extends Shell {
 		btnDownload.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
-				System.out.println(Downloader.getStatus());
 				// TODO: Make sure this status check works
 				if (Downloader.getStatus() == Downloader.DOWNLOADING) {
 					Downloader.getThread().stop();
@@ -353,8 +359,6 @@ public class WistiaEmbedDownloader extends Shell {
 				} else if (Downloader.getStatus() == Downloader.INVALID
 						|| Downloader.getStatus() == Downloader.COMPLETE) {
 					try {
-						// assetDirectURL = new URL("https://embed-ssl.wistia.com/deliveries/" +
-						// assets.get(comboQualities.getItem(comboQualities.getSelectionIndex())));
 						assetDirectURL = new URL(
 								assets.get(comboQualities.getItem(comboQualities.getSelectionIndex())));
 						System.out.println(assetListURL);

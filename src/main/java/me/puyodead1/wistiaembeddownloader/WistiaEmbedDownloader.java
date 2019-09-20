@@ -140,7 +140,7 @@ public class WistiaEmbedDownloader extends Shell {
 		txtConsole = new StyledText(this, SWT.BORDER | SWT.READ_ONLY);
 		txtConsole.setBounds(10, 216, 642, 220);
 
-		txtOutputLocation = new Text(this, SWT.BORDER | SWT.READ_ONLY | SWT.H_SCROLL | SWT.CANCEL);
+		txtOutputLocation = new Text(this, SWT.BORDER | SWT.H_SCROLL | SWT.CANCEL);
 		txtOutputLocation.setEditable(true);
 		txtOutputLocation.setBounds(131, 37, 440, 21);
 		txtOutputLocation.setText(Paths.get("").toAbsolutePath().toString());

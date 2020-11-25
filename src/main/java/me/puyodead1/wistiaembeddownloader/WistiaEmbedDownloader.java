@@ -181,8 +181,7 @@ public class WistiaEmbedDownloader extends Shell {
 			public void mouseDown(MouseEvent e) {
 				try {
 					if (!Strings.isNullOrEmpty(txtURL.getText())) {
-						if (txtURL.getText().trim().split("\\|")[0].length() > 10) { // greater then 10 means it is not
-																						// just a code
+						if (txtURL.getText().trim().split("|")[0].length() > 10) { // greater then 10 means it is not just a code
 							if (!Strings.isNullOrEmpty(txtConsole.getText())) {
 								txtConsole.setText("");
 							}
@@ -250,12 +249,7 @@ public class WistiaEmbedDownloader extends Shell {
 								error("No assets found!");
 							}
 							comboQualities.setEnabled(true);
-						} else if (txtURL.getText().trim().split("\\|")[0].length() == 10) { // 10 means it is just a
-																								// code (manual input
-																								// mode)
-							/**
-							 * 
-							 */
+						} else if (txtURL.getText().trim().split("\\|")[0].length() == 10) { // 10 means it is just a code (manual input mode)
 							if (!Strings.isNullOrEmpty(txtConsole.getText())) {
 								txtConsole.setText("");
 							}
@@ -313,9 +307,6 @@ public class WistiaEmbedDownloader extends Shell {
 								error("No assets found!");
 							}
 							comboQualities.setEnabled(true);
-							/**
-							 * 
-							 */
 						} else {
 							if (!Strings.isNullOrEmpty(txtConsole.getText())) {
 								txtConsole.setText("");
@@ -370,7 +361,7 @@ public class WistiaEmbedDownloader extends Shell {
 								: txtURL.getText().trim().split(";wvideoid=")[0].split("/lessons/");
 						String b = a[a.length - 1];
 						String videoTitle = txtURL.getText().trim().split("\\|")[0].length() == 10
-								? txtURL.getText().trim().split("|")[1]
+								? txtURL.getText().trim().split("\\|")[1]
 								: txtURL.getText().trim().contains("\\?wvideo=") ? a[a.length - 1].split("/")[0]
 										: a[a.length - 1].split("/")[0];
 						System.out.println(videoTitle);

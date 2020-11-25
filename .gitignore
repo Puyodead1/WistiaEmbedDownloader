@@ -1,7 +1,7 @@
-target/
-.settings/
+target
+.settings
 .classpath
 .project
 *.mp4
 build.bat
-tests/
+tests

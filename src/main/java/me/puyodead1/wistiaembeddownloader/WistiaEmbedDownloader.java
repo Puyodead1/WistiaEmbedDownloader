@@ -181,7 +181,7 @@ public class WistiaEmbedDownloader extends Shell {
 			public void mouseDown(MouseEvent e) {
 				try {
 					if (!Strings.isNullOrEmpty(txtURL.getText())) {
-						if (txtURL.getText().trim().split("|")[0].length() > 10) { // greater then 10 means it is not just a code
+						if (txtURL.getText().trim().split("\\|")[0].length() > 10) { // greater then 10 means it is not just a code
 							if (!Strings.isNullOrEmpty(txtConsole.getText())) {
 								txtConsole.setText("");
 							}

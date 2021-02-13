@@ -1,4 +1,4 @@
-# WistiaEmbedDownloader
+# WistiaEmbedDownloader Version 3
 
 Got sick of copy and pasting wistia codes and crap, so I made a program to do it for me!
 
@@ -9,7 +9,7 @@ Got sick of copy and pasting wistia codes and crap, so I made a program to do it
 ![GitHub issues](https://img.shields.io/github/issues/Puyodead1-Development/WistiaEmbedDownloader.svg?style=plastic)
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Puyodead1-Development/WistiaEmbedDownloader.svg?style=plastic)
 ![GitHub License](https://img.shields.io/github/license/Puyodead1-Development/WistiaEmbedDownloader.svg?style=plastic)
-![GitHub last commit](https://img.shields.io/github/last-commit/Puyodead1/WistiaEmbedDownloader.svg?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/Puyodead1-Development/WistiaEmbedDownloader.svg?style=plastic)
 
 <i>**THIS SOFTWARE IS FOR PRIVATE USE ONLY! DO NOT REUPLOAD ANYTHING YOU DOWNLOAD WITH THIS UNLESS YOU HAVE PERMISSION! I AM NOT RESPONSIBLE FOR ANYTHING YOU DO!**</i>
 
@@ -20,8 +20,15 @@ Got sick of copy and pasting wistia codes and crap, so I made a program to do it
   - 2. Manual - You can enter the id and a custom title (this can be used if auto mode fails to extract the id)
 - when using manual mode, use a pipe to specify the title: `80syfiu3x6|thisisatitle`
 
+# Running for development
+
+- `npm install`
+- `npm start`
+
 # Building
 
-`mvn clean compile assembly:single`
+- Not added yet, use above to run in development environment
+
+# Tutorial Video (outdated, v2 only)
 
 [![Tutorial](https://img.youtube.com/vi/lJQ38zQNGwM/0.jpg)](https://www.youtube.com/watch?v=lJQ38zQNGwM)

@@ -1,0 +1,23 @@
+{
+  "name": "wistia-embed-downloader",
+  "version": "3.0.0",
+  "description": "An easy way to download wistia embeded videos",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Puyodead1-Development/WistiaEmbedDownloader.git"
+  },
+  "author": "Puyodead1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Puyodead1-Development/WistiaEmbedDownloader/issues"
+  },
+  "homepage": "https://github.com/Puyodead1-Development/WistiaEmbedDownloader#readme",
+  "devDependencies": {
+    "electron": "^11.2.3",
+    "electron-reloader": "^1.2.0"
+  }
+}

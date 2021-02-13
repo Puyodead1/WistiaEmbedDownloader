@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wistia Embed Downloader</title>
+
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    /> -->
+
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/cyborg/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section>
+        <div class="row justify-content-center">
+          <div class="col-xs" style="padding-right: 15px">
+            <label for="urlid">Embed code or Video ID</label>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-xs mr-2">
+            <textarea
+              name="urlid"
+              name="urlid"
+              id="urlid"
+              cols="40"
+              rows="5"
+              required
+              style="resize: none"
+            ></textarea>
+          </div>
+          <div class="col-xs my-auto">
+            <i
+              class="fa fa-question-circle helpIcon"
+              data-bs-toggle="modal"
+              data-bs-target="#ehModal"
+            ></i>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- EH Modal -->
+    <div
+      class="modal fade"
+      id="ehModal"
+      tabindex="-1"
+      aria-labelledby="ehModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ehModalLabel">
+              How to obtain Embed Code
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img src="https://i.imgur.com/Y4Q1Brm.gif" alt="" />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

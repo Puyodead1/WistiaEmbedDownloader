@@ -1,7 +1,4 @@
-target
-.settings
-.classpath
-.project
-*.mp4
-build.bat
-tests
+node_modules
+oldsrc
+package-lock.json
+typings
